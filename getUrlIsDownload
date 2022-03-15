@@ -1,0 +1,49 @@
+<?php
+$url        = 'https://*********/*****/path?url=/******/apk/********-360-release.apk';
+
+//$url = 'https://****/*****/*****-360-release.apk';
+$ch  = curl_init($url);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);  //支持跳转
+curl_setopt($ch, CURLOPT_HEADER, true);        //返回头信息
+curl_setopt($ch, CURLOPT_NOBODY, true);        //不返回内容
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  //返回数据不直接输出
+$content = curl_exec($ch);                    //执行并存储结果
+curl_close($ch);
+echo $content;
+
+
+
+HTTP/1.1 302 Found
+Server: nginx/1.17.8
+Date: Tue, 15 Mar 2022 03:01:33 GMT
+Content-Type: text/html
+Connection: keep-alive
+Location: https://cdn.******.com/default/apk/*******-360-release.apk?auth_key=202203151131-6230018d78a55-0-c240d5aa424d2c62a00223464b274b8f
+Set-Cookie: HYPERF_SESSION_ID=wopnObCG3joEbDuw7hubNrLko84SE3zhuAwjOl4b; expires=Tue, 15-Mar-2022 08:01:33 GMT; path=/; domain=live.*******.com; httponly
+
+HTTP/2 200 
+server: Tengine
+content-type: application/vnd.android.package-archive
+content-length: 33639847
+date: Tue, 15 Mar 2022 02:48:46 GMT
+x-oss-request-id: 622FFE8E0925293335F1D559
+x-oss-cdn-auth: success
+accept-ranges: bytes
+etag: "AA3AE419319E80963093024C578C7AA6"
+last-modified: Tue, 15 Mar 2022 02:45:50 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 7915201716564772612
+x-oss-storage-class: Standard
+content-md5: qjrkGTGegJYwkwJMV4x6pg==
+x-oss-server-time: 11
+ali-swift-global-savetime: 1647312526
+via: cache35.l2cn3037[75,74,200-0,M], cache20.l2cn3037[77,0], kunlun5.cn2364[0,1,200-0,H], kunlun2.cn2364[7,0]
+age: 767
+x-cache: HIT TCP_HIT dirn:0:239793139
+x-swift-savetime: Tue, 15 Mar 2022 02:48:47 GMT
+x-swift-cachetime: 2591999
+access-control-allow-methods: get
+access-control-allow-origin: *
+timing-allow-origin: *
+eagleid: 7250bb1616473132937567133e
+
